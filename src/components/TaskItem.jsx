@@ -185,7 +185,14 @@ const TaskItem = () => {
             theme: "dark",
           });
         } else if (message) {
-          setAllTasks(data);
+          setAllTasks((prev) => {
+            const prevArr = prev.map((item) => item._id);
+            const unAssignedTaskArray = data.filter(
+              (item) => !prevArr.includes(item._id),
+            );
+
+            return [...prev, ...unAssignedTaskArray];
+          });
         }
       } catch (err) {
         console.log(err);

@@ -37,7 +37,7 @@ const TaskField = () => {
     setLoading(true);
     try {
       const data = await axios.post(
-        "http://localhost:8000/api/v1/task/addTask",
+        "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/task/addTask",
         {
           ...formData,
           user: user.userId,
@@ -104,7 +104,7 @@ const TaskField = () => {
       if (taskInfo !== null && taskInfo.edit === true) {
         try {
           const data = await axios.post(
-            "http://localhost:8000/api/v1/task/editTask",
+            "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/task/editTask",
             {
               ...formData,
               taskId: taskInfo._id,
@@ -167,7 +167,7 @@ const TaskField = () => {
       } else {
         try {
           const data = await axios.post(
-            "http://localhost:8000/api/v1/task/addTask",
+            "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/task/addTask",
             {
               ...formData,
               user: user.userId,
@@ -233,7 +233,7 @@ const TaskField = () => {
     setLoading(true);
     try {
       const data = await axios.post(
-        "http://localhost:8000/api/v1/task/editTask",
+        "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/task/editTask",
         {
           ...formData,
           taskId: taskInfo._id,

@@ -57,7 +57,7 @@ const UserList = ({ smallScreen }) => {
 
     try {
       const data = await axios.post(
-        "http://localhost:8000/api/v1/task/assignTask",
+        "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/task/assignTask",
         {
           whoAssigned: userInfo.userId,
           whomAssigned: userArray[0],
@@ -102,7 +102,7 @@ const UserList = ({ smallScreen }) => {
   useEffect(() => {
     const getUsers = async () => {
       const data = await axios.get(
-        "http://localhost:8000/api/v1/auth/alluser",
+        "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/auth/alluser",
         { headers: { user: userInfo.userId } },
       );
 

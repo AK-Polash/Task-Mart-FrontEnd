@@ -24,7 +24,7 @@ const TaskItem = () => {
   const handleDeleteTask = async (taskItem) => {
     try {
       const data = await axios.post(
-        "http://localhost:8000/api/v1/task/deleteTask",
+        "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/task/deleteTask",
         {
           taskId: taskItem._id,
           userId: taskItem.user,
@@ -68,7 +68,7 @@ const TaskItem = () => {
   const handleCompleteTask = async (taskItem) => {
     try {
       const request = await axios.post(
-        "http://localhost:8000/api/v1/task/updateTaskStatus",
+        "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/task/updateTaskStatus",
         { taskId: taskItem._id, status: "Completed" },
       );
 
@@ -105,7 +105,7 @@ const TaskItem = () => {
   const handleIncompleteTask = async (taskItem) => {
     try {
       const request = await axios.post(
-        "http://localhost:8000/api/v1/task/updateTaskStatus",
+        "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/task/updateTaskStatus",
         { taskId: taskItem._id, status: "Pending" },
       );
 
@@ -164,7 +164,7 @@ const TaskItem = () => {
     const getAllTasks = async () => {
       try {
         const receivedData = await axios.get(
-          "http://localhost:8000/api/v1/task/allTask",
+          "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/task/allTask",
           {
             headers: {
               user: userInfo.userId,
@@ -199,7 +199,7 @@ const TaskItem = () => {
   useEffect(() => {
     const getAllAssignedTasks = async () => {
       const request = await axios.get(
-        "http://localhost:8000/api/v1/task/allAssignedTask",
+        "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/task/allAssignedTask",
       );
 
       const { error, message, data } = request.data;

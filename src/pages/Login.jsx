@@ -12,6 +12,7 @@ import Button from "../components/Button";
 import AuthLink from "../components/AuthLink";
 import Modal from "../components/Modals";
 import { RxCross2 } from "react-icons/rx";
+// Backend Link: https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app
 
 const Login = () => {
   const user = useSelector((state) => state.userData.userInfo);
@@ -34,7 +35,7 @@ const Login = () => {
     try {
       setForgotPassLoading(true);
       const forgotPasswordData = await axios.post(
-        "http://localhost:8000/api/v1/auth/forgotPassword",
+        "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/auth/forgotPassword",
         {
           forgotPassword: forgotPassword,
         },
@@ -73,7 +74,7 @@ const Login = () => {
       try {
         setForgotPassLoading(true);
         const forgotPasswordData = await axios.post(
-          "http://localhost:8000/api/v1/auth/forgotPassword",
+          "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/auth/forgotPassword",
           {
             forgotPassword: forgotPassword,
           },
@@ -144,9 +145,12 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const data = await axios.post("http://localhost:8000/api/v1/auth/login", {
-        ...formData,
-      });
+      const data = await axios.post(
+        "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/auth/login",
+        {
+          ...formData,
+        },
+      );
 
       const { message, error, errorField, loginData } = data.data;
 
@@ -199,7 +203,7 @@ const Login = () => {
 
       try {
         const data = await axios.post(
-          "http://localhost:8000/api/v1/auth/login",
+          "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/auth/login",
           {
             ...formData,
           },

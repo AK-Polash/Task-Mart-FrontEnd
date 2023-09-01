@@ -20,7 +20,7 @@ const MatchOtp = () => {
   const handleConfirmOtp = async () => {
     setLoading(true);
     const otpData = await axios.post(
-      "http://localhost:8000/api/v1/auth/matchOtp",
+      "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/auth/matchOtp",
       {
         otp: otp,
         forgotPassword: localEmail,
@@ -56,7 +56,7 @@ const MatchOtp = () => {
     if (e.key === "Enter") {
       setLoading(true);
       const otpData = await axios.post(
-        "http://localhost:8000/api/v1/auth/matchOtp",
+        "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/auth/matchOtp",
         {
           otp: otp,
           forgotPassword: localEmail,

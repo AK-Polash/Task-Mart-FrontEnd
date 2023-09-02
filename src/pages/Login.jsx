@@ -21,7 +21,11 @@ const Login = () => {
 
   const [modalOpen, setModalOpen] = useState(false);
   const openModal = () => setModalOpen(true);
-  const closeModal = () => setModalOpen(false);
+  const closeModal = () => {
+    setModalOpen(false);
+    setForgotPassword("");
+    setErrorMsg({});
+  };
   const [forgotPassword, setForgotPassword] = useState("");
   const [forgotPassLoading, setForgotPassLoading] = useState(false);
   const [next, setNext] = useState(false);
@@ -334,7 +338,7 @@ const Login = () => {
               </div>
 
               {errorMsg.forgotPassword && (
-                <div className="absolute bottom-[88px] left-[34px] font-nuni text-base font-normal text-danger">
+                <div className="absolute bottom-[75px] left-[34px] font-nuni text-base font-normal text-danger md:bottom-[88px]">
                   {errorMsg.forgotPassword}
                 </div>
               )}
@@ -347,15 +351,23 @@ const Login = () => {
                 />
               )}
 
-              <ColorRing
-                visible={forgotPassLoading}
-                height="50"
-                width="50"
-                ariaLabel="blocks-loading"
-                wrapperStyle={{ marginLeft: "163px", height: 47.98 }}
-                wrapperClass="blocks-wrapper"
-                colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
-              />
+              <div className="flex justify-center">
+                <ColorRing
+                  visible={forgotPassLoading}
+                  height="50"
+                  width="50"
+                  ariaLabel="blocks-loading"
+                  wrapperStyle={{ height: 47.98 }}
+                  wrapperClass="blocks-wrapper"
+                  colors={[
+                    "#e15b64",
+                    "#f47e60",
+                    "#f8b26a",
+                    "#abbd81",
+                    "#849b87",
+                  ]}
+                />
+              </div>
 
               <button
                 onClick={closeModal}

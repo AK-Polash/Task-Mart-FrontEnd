@@ -10,7 +10,7 @@ const Modal = ({ isOpen, onClose, children }) => {
           <div className="absolute inset-0 bg-black opacity-70"></div>
         </div>
         <div className="inline-block transform overflow-hidden rounded-md bg-white align-bottom shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-md sm:align-middle">
-          <div className="relative p-8">{children}</div>
+          <div className="relative p-5 md:p-8">{children}</div>
         </div>
       </div>
     </div>

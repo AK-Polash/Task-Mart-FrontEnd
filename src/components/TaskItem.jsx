@@ -358,6 +358,10 @@ const TaskItem = () => {
                             }),
                           );
                           setShowModal({});
+                          scrollTo({
+                            top: 0,
+                            behavior: "smooth",
+                          });
                         }}
                         className="cursor-pointer bg-flat px-3 py-1 transition-all duration-75 ease-linear hover:bg-primary hover:text-flat xl:py-0"
                       >
@@ -387,6 +391,10 @@ const TaskItem = () => {
                         assignedTask({ ...item, edit: true, assigned: false }),
                       );
                       setShowModal({});
+                      scrollTo({
+                        top: 0,
+                        behavior: "smooth",
+                      });
                     }}
                     className="cursor-pointer bg-flat px-3 py-1 transition-all duration-75 ease-linear hover:bg-primary hover:text-flat xl:py-0"
                   >

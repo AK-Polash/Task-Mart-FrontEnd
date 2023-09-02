@@ -191,7 +191,7 @@ const TaskItem = () => {
               (item) => !prevArr.includes(item._id),
             );
 
-            return [...prev, ...unAssignedTaskArray];
+            return [...unAssignedTaskArray, ...prev];
           });
         }
       } catch (err) {
@@ -342,7 +342,7 @@ const TaskItem = () => {
                         setShowModal({});
                         handleCompleteTask(item);
                       }}
-                      className="cursor-pointer bg-flat px-3 transition-all duration-75 ease-linear hover:bg-primary hover:text-flat"
+                      className="cursor-pointer bg-flat px-3 py-1 transition-all duration-75 ease-linear hover:bg-primary hover:text-flat xl:py-0"
                     >
                       Complete
                     </li>
@@ -359,7 +359,7 @@ const TaskItem = () => {
                           );
                           setShowModal({});
                         }}
-                        className="cursor-pointer bg-flat px-3 transition-all duration-75 ease-linear hover:bg-primary hover:text-flat"
+                        className="cursor-pointer bg-flat px-3 py-1 transition-all duration-75 ease-linear hover:bg-primary hover:text-flat xl:py-0"
                       >
                         Assign
                       </li>
@@ -374,7 +374,7 @@ const TaskItem = () => {
                       setShowModal({});
                       handleIncompleteTask(item);
                     }}
-                    className="cursor-pointer bg-flat px-3 transition-all duration-75 ease-linear hover:bg-primary hover:text-flat"
+                    className="cursor-pointer bg-flat px-3 py-1 transition-all duration-75 ease-linear hover:bg-primary hover:text-flat xl:py-0"
                   >
                     Incomplete
                   </li>
@@ -388,7 +388,7 @@ const TaskItem = () => {
                       );
                       setShowModal({});
                     }}
-                    className="cursor-pointer bg-flat px-3 transition-all duration-75 ease-linear hover:bg-primary hover:text-flat"
+                    className="cursor-pointer bg-flat px-3 py-1 transition-all duration-75 ease-linear hover:bg-primary hover:text-flat xl:py-0"
                   >
                     Edit
                   </li>
@@ -400,7 +400,7 @@ const TaskItem = () => {
                     setShowModal({});
                     handleDeleteTask(item);
                   }}
-                  className="cursor-pointer bg-flat px-3 transition-all duration-75 ease-linear hover:bg-primary hover:text-flat"
+                  className="cursor-pointer bg-flat px-3 py-1 transition-all duration-75 ease-linear hover:bg-primary hover:text-flat xl:py-0"
                 >
                   Remove
                 </li>

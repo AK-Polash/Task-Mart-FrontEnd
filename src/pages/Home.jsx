@@ -22,7 +22,7 @@ const Home = () => {
   }, [innerWidth]);
 
   return (
-    <div className="bg-gradient-to-tr from-primary to-secondary pt-16">
+    <div className="min-h-screen bg-gradient-to-tr from-primary to-secondary pt-16">
       <Container>
         <div className="flex w-full flex-col justify-between gap-x-6 xl:flex-row">
           <div className="flex xl:w-1/5">

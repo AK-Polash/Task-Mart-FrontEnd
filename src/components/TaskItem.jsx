@@ -16,6 +16,7 @@ const TaskItem = () => {
   const modalRefs = {};
   const [allTasks, setAllTasks] = useState([]);
   const [showModal, setShowModal] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const handleToggleModal = (id) => {
     setShowModal((prev) => ({ [id]: !prev[id] }));
@@ -159,9 +160,11 @@ const TaskItem = () => {
     };
   }, [showModal]);
 
+  // ---------------> Not working the setLoading() inside useEffect line:167 & line:199
   // Get all Tasks:
   useEffect(() => {
     const getAllTasks = async () => {
+      // setLoading(true);
       try {
         const receivedData = await axios.get(
           "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/task/allTask",
@@ -193,6 +196,7 @@ const TaskItem = () => {
 
             return [...unAssignedTaskArray, ...prev];
           });
+          // setLoading(false);
         }
       } catch (err) {
         console.log(err);
@@ -205,6 +209,7 @@ const TaskItem = () => {
   // Get all Assigned Tasks:
   useEffect(() => {
     const getAllAssignedTasks = async () => {
+      setLoading(true);
       const request = await axios.get(
         "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/task/allAssignedTask",
       );
@@ -245,6 +250,7 @@ const TaskItem = () => {
             });
           }
         });
+        setLoading(false);
       }
     };
 
@@ -417,6 +423,10 @@ const TaskItem = () => {
             {/* ========================== Dropdown Menu End ========================== */}
           </div>
         ))
+      ) : loading ? (
+        <div className="rounded bg-smoke p-1 text-center font-nuni text-xl font-semibold text-danger">
+          Loading...
+        </div>
       ) : (
         <div className="rounded bg-smoke p-1 text-center font-nuni text-xl font-semibold text-danger">
           No task added yet!

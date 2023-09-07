@@ -21,6 +21,7 @@ const UserList = ({ smallScreen }) => {
   const [isSelected, setIsSelected] = useState({});
   const [show, setShow] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [usersLoadAnimation, setUsersLoadAnimation] = useState(false);
 
   const handleSearchChange = (e) => {
     const { value } = e.target;
@@ -101,6 +102,7 @@ const UserList = ({ smallScreen }) => {
 
   useEffect(() => {
     const getUsers = async () => {
+      setUsersLoadAnimation(true);
       const data = await axios.get(
         "https://task-mart-backend-7ffk6vmmm-ak-polash.vercel.app/api/v1/auth/alluser",
         { headers: { user: userInfo.userId } },
@@ -120,6 +122,7 @@ const UserList = ({ smallScreen }) => {
         });
       } else if (users) {
         setUserList(users);
+        setUsersLoadAnimation(true);
       }
     };
 
@@ -247,6 +250,10 @@ const UserList = ({ smallScreen }) => {
                 />
               ),
           )
+        ) : usersLoadAnimation ? (
+          <div className="text-center font-nuni text-lg font-semibold text-danger">
+            Loading...
+          </div>
         ) : (
           <div className="text-center font-nuni text-lg font-semibold text-danger">
             Empty User List!
